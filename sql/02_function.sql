@@ -4,7 +4,8 @@
  */
 CREATE OR REPLACE FUNCTION get_actor_ids(text) RETURNS TABLE(actor_id INTEGER) AS
 $$
--- FIXME: implementation goes here
+SELECT actor_id FROM ACTOR
+WHERE first_name ilike CONCAT($1, '%');
 $$
 LANGUAGE SQL
 IMMUTABLE
